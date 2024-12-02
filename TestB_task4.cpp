@@ -95,17 +95,18 @@ int NumbersToClear(float array[], int size) {
 //This will be used for the elements that have to be cleared so the array can be sorted in ascedning way
 void ClearArray(float array[], int& size) {
 	int newSize = 1;
-	float newArray[5] = {};
+	float newArray[5] = {};			//This is a temporary array that will store the needed numbers
 
 	newArray[0] = array[0];
 	int a = 1;
 	for (int i = 0; i < size - 1; i++) {
-		if (array[i] < array[i + a]) {
+		if (array[i] <= array[i + a]) {
 			newArray[newSize++] = array[i + 1];
 		}
 	}
 
-	for (int i = 0; i < newSize; i++) {
+	//This rewrites the left numbers in the original array
+	for (int i = 0; i < newSize; i++) { 
 		array[i] = newArray[i];
 	}
 
